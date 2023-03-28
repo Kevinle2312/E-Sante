@@ -228,11 +228,11 @@ export const themeSettings = (mode) => {
       mode: mode,
       ...(mode === 'dark'
       ?{
-        // pallet values for dark mode
-        primary:{
+          // pallet values for dark mode
+          primary:{
           main: colors.primary[500],
         },
-         secondary:{
+          secondary:{
           main: colors.greenAccent[500],
          },
           neutral: {
