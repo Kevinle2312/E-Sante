@@ -75,7 +75,7 @@ let colors_dark_mode = {
 export const token = (mode) =>({
   ...(mode === 'dark'
     ?{
-        const: colors = {
+
           grey: {
             DEFAULT:  '#666666',
             50: '#C2C2C2',
@@ -144,9 +144,7 @@ export const token = (mode) =>({
             800: '#060FB4',
             900: '#040B7D'
           }
-  }
     }:{
-        const: colors = {
           grey: {
               '200': '#121212',
               '300': '#2E2E2E',
@@ -215,13 +213,12 @@ export const token = (mode) =>({
               '950': '#FFFFFF',
               DEFAULT: '#6870FA'
             }
-      }
   })
 })
 
 // mui theme setting
 export const themeSettings = (mode) => {
-  const colors = tokens(mode);
+  const colors = token(mode);
 
   return {
     pallet: {

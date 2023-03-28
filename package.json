@@ -6,9 +6,9 @@
   "license": "",
   "author": "",
   "scripts": {
-    "build": "parcel build src/index.js",
+    "build": "parcel build public/index.html",
     "dev": "parcel src/index.js",
-    "start": "parcel src/index.js",
+    "start": "parcel serve public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
