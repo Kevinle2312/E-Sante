@@ -5,10 +5,11 @@
   "keywords": "",
   "license": "",
   "author": "",
+  "main": "src/index.js",
   "scripts": {
-    "build": "parcel build public/index.html",
+    "build": "parcel build src/index.js",
     "dev": "parcel src/index.js",
-    "start": "parcel serve public/index.html",
+    "start": "parcel serve ./public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
