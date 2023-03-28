@@ -7,7 +7,7 @@
   "author": "",
   "scripts": {
     "build": "parcel build src/index.js",
-    "dev": "parcel ./src/index.js",
+    "dev": "parcel index.html --open --port 1234 --target browser --public-url ./",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
