@@ -5,7 +5,6 @@ import { createTheme } from "@mui/material/styles";
 export const token = (mode) => ({
   ...(mode === 'dark'
     ?{
-
           grey: {
             DEFAULT:  '#666666',
             50: '#C2C2C2',
@@ -20,17 +19,15 @@ export const token = (mode) => ({
           },
 
           primary: {
-            DEFAULT: '#121B2B',
-            50: '#486CAC',
-            100: '#42639E',
-            200: '#365181',
-            300: '#2A3F65',
-            400: '#1E2D48',
-            500: '#121B2B',
-            600: '#010203',
-            700: '#000000',
-            800: '#000000',
-            900: '#000000'
+            100: "#d0d1d5",
+            200: "#a1a4ab",
+            300: "#727681",
+            400: "#1F2A40",
+            500: "#141b2d",
+            600: "#101624",
+            700: "#0c101b",
+            800: "#080b12",
+            900: "#040509",
           },
 
           greenAccent: {
@@ -92,17 +89,15 @@ export const token = (mode) => ({
           },
 
           primary: {
-            100: '#000000',
-            200: '#000000',
-            300: '#000000',
-            400: '#010203',
-            500: '#121B2B',
-            600: '#1E2D48',
-            700: '#2A3F65',
-            800: '#365181',
-            900: '#42639E',
-            950: '#486CAC',
-            DEFAULT: '#121B2B'
+            100: "#040509",
+            200: "#080b12",
+            300: "#0c101b",
+            400: "#f2f0f0", // manually changed
+            500: "#141b2d",
+            600: "#1F2A40",
+            700: "#727681",
+            800: "#a1a4ab",
+            900: "#d0d1d5",
           },
 
           greenAccent: {
@@ -155,7 +150,7 @@ export const themeSettings = (mode) => {
   const colors = token(mode);
 
   return {
-    pallet: {
+    palette: {
       mode: mode,
       ...(mode === 'dark'
       ?{
