@@ -9,12 +9,11 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-
-          <main className="content">
+        <div className="app">
+          <main className="content" style={{ flexGrow: 1 }}>
             <Topbar/>
-
           </main>
-
+        </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
