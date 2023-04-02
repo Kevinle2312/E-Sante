@@ -1,15 +1,17 @@
 import { useState } from 'react';
 
 import {
-  Avatar,
+  Avatar, Box,
   Button,
   Container,
-  CssBaseline,
+  CssBaseline, Snackbar,
   TextField,
   Typography,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { makeStyles } from '@mui/styles';
+// import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -110,8 +112,12 @@ const useStyles = makeStyles((theme) => ({
 import React, { useState } from "react";
 
 function LoginForm({ onLogin }) {
+  const navigate = useNavigate();
+  // const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
+  const [error, setError] = useState("");
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -122,34 +128,80 @@ function LoginForm({ onLogin }) {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    onLogin(username, password);
+    event.preventDefault(); // prevent the form from refreshing the page
+
+    if (username === "admin" && password === "password") {
+      navigate("/dashboard"); // redirect to the dashboard
+    } else {
+      setIsSnackbarOpen(true); // show a message to the user
+    }
+  };
+
+  const handleSnackbarClose = () => {
+    setIsSnackbarOpen(false);
+    setError("Failed to log in");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <Container maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            value={username}
+            onChange={handleUsernameChange}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          {error && <Typography color="error">{error}</Typography>}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign In
+          </Button>
+          <Snackbar
+            open={isSnackbarOpen}
+            autoHideDuration={6000}
+            onClose={handleSnackbarClose}
+            message="Invalid username or password"
+          />
+        </Box>
+      </Box>
+    </Container>
   );
 }
 
 export default LoginForm;
+
+
 
