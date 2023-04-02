@@ -5,7 +5,10 @@ import {CssBaseline, Switch, Switch as MuiSwitch, ThemeProvider} from "@mui/mate
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import LoginPage from "./scenes/Login/Login"; // import the LoginPage component
+import LoginPage from "./scenes/Login/LoginPage"; // import the LoginPage component
+
+
+
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -31,7 +34,7 @@ function App() {
               <Route path="/">
                 <Sidebar isSidebar={isSidebar} />
                 <Topbar />
-                {/* Your main content goes here */}
+                {/* My main content goes here */}
                 <main className="content" style={{ flexGrow: 1 }}>
                   <Dashboard />
                 </main>
