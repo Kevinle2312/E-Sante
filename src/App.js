@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, {useState} from "react";
 import { ColorModeContext, useMode } from "./theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import {CssBaseline, ThemeProvider} from "@mui/material";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import LoginPage from "./scenes/Login/LoginPage"; // import the LoginPage component
 
 
-function DashboardLayout() {
+function Layout(props) {
   return (
     <>
       <Sidebar />
@@ -32,7 +32,7 @@ function App() {
           <div className="app">
             <Routes>
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/dashboard" element={<DashboardLayout />} />
+              <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
             </Routes>
           </div>
         </BrowserRouter>
