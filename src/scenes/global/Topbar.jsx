@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import {AppBar, Box, IconButton, Toolbar, useTheme} from "@mui/material";
 import React, { useContext } from "react";
 import { ColorModeContext, token } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -17,41 +17,46 @@ const Topbar = () => {
   const colorMode = useContext(ColorModeContext);
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
-      {/* SEARCH BAR*/}
-      <Box
-        display="flex"
-        backgroundColor={colors.primary[400]}
-        borderRadius="25px"
-      >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
-      </Box>
+    <Box position="flex" top={0} width="100%"  zIndex={10} p={2}>
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        {/* SEARCH BAR */}
+        <Box
+          display="flex"
+          backgroundColor={colors.primary[400]}
+          borderRadius="25px"
+          minWidth={200}
+        >
+          <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+          <IconButton type="button" sx={{ p: 1 }}>
+            <SearchIcon />
+          </IconButton>
+        </Box>
 
-      {/*ICONS*/}
-      <Box display="flex" justifyContent="flex-end">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
-
+        {/* ICONS */}
+        <Box display="flex" alignItems="center">
+          <IconButton onClick={colorMode.toggleColorMode}>
+            {theme.palette.mode === "dark" ? (
+              <DarkModeOutlinedIcon />
+            ) : (
+              <LightModeOutlinedIcon />
+            )}
+          </IconButton>
+          <IconButton>
+            <NotificationsOutlinedIcon />
+          </IconButton>
+          <IconButton>
+            <SettingsOutlinedIcon />
+          </IconButton>
+          <IconButton>
+            <PersonOutlinedIcon />
+          </IconButton>
+        </Box>
       </Box>
     </Box>
+
   );
 };
 
 export default Topbar;
+
+

@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { ColorModeContext, useMode } from "./theme";
-import {CssBaseline, ThemeProvider} from "@mui/material";
-import {BrowserRouter, Routes, Route } from "react-router-dom";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
@@ -12,9 +12,8 @@ function Layout(props) {
   return (
     <>
       <Sidebar />
-      <Topbar />
       <main className="content" style={{ flexGrow: 1 }}>
-        <Dashboard />
+        <Topbar />
       </main>
     </>
   );
