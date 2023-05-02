@@ -1,5 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from "@mui/material";
-import { useAuth } from "../auth";
+import { useAuth } from "../../AuthService/auth";
 
 function LogoutDialog({ isOpen, onClose }) {
   const { logout } = useAuth();
