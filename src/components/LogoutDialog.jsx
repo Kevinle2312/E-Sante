@@ -1,11 +1,15 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from "@mui/material";
-import { useAuth } from "../../AuthService/auth";
+// import { useAuth } from "../../AuthService/useAuth";
+import {setAuthToken} from "../scenes/signin/LoginPage";
+import {redirect, useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 function LogoutDialog({ isOpen, onClose }) {
-  const { logout } = useAuth();
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
   const handleLogout = () => {
-
+    onSignOut();
   };
 
   function onSignOut() {
@@ -13,7 +17,7 @@ function LogoutDialog({ isOpen, onClose }) {
     localStorage.removeItem("token");
     localStorage.removeItem("token_refresh");
     setAuthToken(null);
-    history.push("/Login");
+    navigate("/Login");
     return redirect("/");
   }
 
@@ -23,7 +27,7 @@ function LogoutDialog({ isOpen, onClose }) {
       <DialogContent>Are you sure you want to log out?</DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleLogout(onSignOut)} color="error">Logout</Button>
+        <Button onClick={handleLogout} color="error">Logout</Button>
       </DialogActions>
     </Dialog>
   );

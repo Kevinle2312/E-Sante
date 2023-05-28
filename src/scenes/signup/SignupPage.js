@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import User from "../../data/User";
+import User from "../../model/User";
 
 
 import axios from "axios";
 import {Box, Button, Container, TextField, Typography} from "@mui/material";
 
 const axiosInstance = axios.create({
-  baseURL: "https://fruits.shrp.dev",
+  baseURL: "https://fake-health-data-api.shrp.dev",
   timeout: 3000,
   headers: {},
 });
@@ -34,7 +34,7 @@ function SignupPage() {
 
     try {
       setLoading(true);
-      const response = await axiosInstance.post(`/users`, aUser);
+      const response = await axiosInstance.post(`/auth/signup`, aUser);
 
       if (response.status === 204) {
         setUser(aUser);

@@ -17,10 +17,9 @@ import {
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { makeStyles } from '@mui/styles';
-// import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import User from "../../data/User";
+import User from "../../model/User";
 
 export const setAuthToken = token => {
   if (token) {
@@ -78,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const axiosInstance = axios.create({
-  baseURL: "https://fruits.shrp.dev",
+  baseURL: "https://fake-health-data-api.shrp.dev",
   timeout: 3000,
   headers: {},
 });
@@ -109,7 +108,7 @@ function LoginForm({ onLogin }) {
   async function onSubmitSignInForm(data) {
     try {
       setLoading(true);
-      const response = await axiosInstance.post(`/auth/login`, {
+      const response = await axiosInstance.post(`/auth/signin`, {
         email: data.email,
         password: data.password,
       });
@@ -293,7 +292,7 @@ function LoginForm({ onLogin }) {
           Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit(onSubmitSignInForm)} sx={{ mt: 1 }}>
-          <TextField
+        <TextField
             margin="normal"
             required
             fullWidth
