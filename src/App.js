@@ -5,7 +5,8 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import LoginPage from "./scenes/Login/LoginPage"; // import the LoginPage component
+import LoginPage, {setAuthToken} from "./scenes/Login/LoginPage";
+import SignupPage from "./scenes/Signup/SignupPage"; // import the LoginPage component
 
 
 function Layout(props) {
@@ -23,6 +24,12 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
+  //check jwt token
+  const token = localStorage.getItem("token");
+  if (token) {
+    setAuthToken(token);
+  }
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -31,6 +38,7 @@ function App() {
           <div className="app">
             <Routes>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
               <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
             </Routes>
           </div>

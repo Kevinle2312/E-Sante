@@ -5,9 +5,17 @@ function LogoutDialog({ isOpen, onClose }) {
   const { logout } = useAuth();
 
   const handleLogout = () => {
-    logout();
-    onClose();
+
   };
+
+  function onSignOut() {
+    setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("token_refresh");
+    setAuthToken(null);
+    history.push("/Login");
+    return redirect("/");
+  }
 
   return (
     <Dialog open={isOpen} onClose={onClose}>
@@ -15,7 +23,7 @@ function LogoutDialog({ isOpen, onClose }) {
       <DialogContent>Are you sure you want to log out?</DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleLogout} color="error">Logout</Button>
+        <Button onClick={handleLogout(onSignOut)} color="error">Logout</Button>
       </DialogActions>
     </Dialog>
   );

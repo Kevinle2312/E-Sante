@@ -9,7 +9,6 @@ export const useAuth = () => {
 
   const logout = () => {
     setIsLoggedIn(false);
-    navigate("/dashboard")
   };
 
   return { isLoggedIn, login, logout };
