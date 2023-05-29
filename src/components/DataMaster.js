@@ -15,7 +15,7 @@ const axiosInstance = axios.create({
   headers: {},
 });
 
-function FruitsMaster() {
+function DataMaster() {
   const [data, setData] = useState([]); //par défaut la liste de fruits est vide
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -125,4 +125,4 @@ function FruitsMaster() {
   );
 }
 
-export default FruitsMaster;
+export default DataMaster;
