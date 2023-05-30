@@ -1,78 +1,234 @@
 import { token } from "../theme";
 
-export const mockDataTeam = [
+export const mockData = [
   {
     id: 1,
-    name: "Jon Snow",
-    email: "jonsnow@gmail.com",
-    age: 35,
-    phone: "(665)121-5454",
-    access: "admin",
-  },
-  {
-    id: 2,
-    name: "Cersei Lannister",
-    email: "cerseilannister@gmail.com",
-    age: 42,
-    phone: "(421)314-2288",
-    access: "manager",
-  },
-  {
-    id: 3,
-    name: "Jaime Lannister",
-    email: "jaimelannister@gmail.com",
-    age: 45,
-    phone: "(422)982-6739",
-    access: "user",
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 90.1,
+    date: "2022-01-08T11:52:44.000Z"
   },
   {
     id: 4,
-    name: "Anya Stark",
-    email: "anyastark@gmail.com",
-    age: 16,
-    phone: "(921)425-6742",
-    access: "admin",
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 82.1,
+    date: "2022-01-08T12:48:20.000Z"
   },
   {
-    id: 5,
-    name: "Daenerys Targaryen",
-    email: "daenerystargaryen@gmail.com",
-    age: 31,
-    phone: "(421)445-1189",
-    access: "user",
+    id: 18,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 69.4,
+    date: "2022-01-29T21:16:27.000Z"
   },
   {
-    id: 6,
-    name: "Ever Melisandre",
-    email: "evermelisandre@gmail.com",
-    age: 150,
-    phone: "(232)545-6483",
-    access: "manager",
+    id: 11,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 74.1,
+    date: "2022-02-23T10:31:29.000Z"
+  },
+  {
+    id: 38,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 75.8,
+    date: "2022-03-07T05:03:38.000Z"
+  },
+  {
+    id: 24,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 74.7,
+    date: "2022-03-19T17:08:01.000Z"
+  },
+  {
+    id: 33,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 76.3,
+    date: "2022-03-21T06:53:51.000Z"
+  },
+  {
+    id: 32,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 79.3,
+    date: "2022-04-20T12:38:48.000Z"
   },
   {
     id: 7,
-    name: "Ferrara Clifford",
-    email: "ferraraclifford@gmail.com",
-    age: 44,
-    phone: "(543)124-0123",
-    access: "user",
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 87.5,
+    date: "2022-04-23T16:12:55.000Z"
+  },
+  {
+    id: 14,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 81.1,
+    date: "2022-05-01T10:26:25.000Z"
+  },
+  {
+    id: 36,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 84,
+    date: "2022-05-16T20:55:18.000Z"
+  },
+  {
+    id: 20,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 89.5,
+    date: "2022-05-18T10:16:56.000Z"
+  },
+  {
+    id: 19,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 73.4,
+    date: "2022-05-24T18:36:42.000Z"
+  },
+  {
+    id: 30,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 68,
+    date: "2022-06-03T04:39:48.000Z"
+  },
+  {
+    id: 2,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 81.5,
+    date: "2022-06-04T09:14:39.000Z"
+  },
+  {
+    id: 29,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 79.7,
+    date: "2022-06-19T00:48:25.000Z"
   },
   {
     id: 8,
-    name: "Rossini Frances",
-    email: "rossinifrances@gmail.com",
-    age: 36,
-    phone: "(222)444-5555",
-    access: "user",
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 71.8,
+    date: "2022-06-19T03:52:02.000Z"
+  },
+  {
+    id: 10,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 86.4,
+    date: "2022-07-13T14:42:45.000Z"
+  },
+  {
+    id: 28,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 88,
+    date: "2022-07-14T01:29:07.000Z"
+  },
+  {
+    id: 27,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 86.3,
+    date: "2022-07-24T04:26:33.000Z"
   },
   {
     id: 9,
-    name: "Harvey Roxie",
-    email: "harveyroxie@gmail.com",
-    age: 65,
-    phone: "(444)555-6239",
-    access: "admin",
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 87.4,
+    date: "2022-07-28T02:22:02.000Z"
   },
+  {
+    id: 13,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 76.5,
+    date: "2022-07-31T22:48:42.000Z"
+  },
+  {
+    id: 3,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 69.2,
+    date: "2022-08-04T12:43:16.000Z"
+  },
+  {
+    id: 26,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 80.1,
+    date: "2022-08-06T15:47:18.000Z"
+  },
+  {
+    id: 35,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 83,
+    date: "2022-08-20T06:26:43.000Z"
+  },
+  {
+    id: 6,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 90.4,
+    date: "2022-08-26T00:40:38.000Z"
+  },
+  {
+    id: 12,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 75.6,
+    date: "2022-09-03T15:02:56.000Z"
+  },
+  {
+    id: 5,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 78.1,
+    date: "2022-09-08T04:48:01.000Z"
+  },
+  {
+    id: 23,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 65.1,
+    date: "2022-09-08T15:22:29.000Z"
+  },
+  {
+    id: 16,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 77.1,
+    date: "2022-09-19T10:57:34.000Z"
+  },
+  {
+    id: 17,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 86.2,
+    date: "2022-09-23T04:18:26.000Z"
+  },
+  {
+    id: 37,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 67.6,
+    date: "2022-10-09T22:32:22.000Z"
+  },
+  {
+    id: 15,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 68.3,
+    date: "2022-10-26T23:48:21.000Z"
+  },
+  {
+    id: 31,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 90.6,
+    date: "2022-10-27T02:40:11.000Z"
+  },
+  {
+    id: 34,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 73.3,
+    date: "2022-11-03T18:38:36.000Z"
+  },
+  {
+    id: 25,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 81.9,
+    date: "2022-11-11T02:27:04.000Z"
+  },
+  {
+    id: 21,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 79.2,
+    date: "2022-11-13T09:56:53.000Z"
+  },
+  {
+    id: 22,
+    people_id: "0b3a6122-7b14-4a01-9bea-e6e185dace07",
+    weight: 65.6,
+    date: "2022-12-11T13:16:34.000Z"
+  }
 ];
 
 export const mockDataContacts = [

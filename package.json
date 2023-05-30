@@ -5,7 +5,7 @@
   "keywords": "",
   "license": "",
   "author": "",
-  "main": "src/index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "build": "parcel build src/index.js",
     "dev": "parcel src/index.js",
@@ -26,7 +26,7 @@
     "@fullcalendar/list": "^6.1.5",
     "@fullcalendar/timegrid": "^6.1.5",
     "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.14",
+    "@mui/material": "^5.13.3",
     "@mui/styles": "^5.11.13",
     "@mui/x-data-grid": "^6.5.0",
     "@nivo/bar": "^0.80.0",

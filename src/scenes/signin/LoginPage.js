@@ -76,11 +76,13 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const axiosInstance = axios.create({
-  baseURL: "https://fake-health-data-api.shrp.dev",
-  timeout: 3000,
-  headers: {},
-});
+const URL = "https://fake-health-data-api.shrp.dev";
+
+// const axiosInstance = axios.create({
+//   baseURL: "https://fake-health-data-api.shrp.dev",
+//   timeout: 3000,
+//   headers: {},
+// });
 
 
 function LoginForm({ onLogin }) {
@@ -102,56 +104,54 @@ function LoginForm({ onLogin }) {
     formState: { errors },
   } = useForm();
 
+  console.log(password,username)
+
   const history = useNavigate();
 
 
   async function onSubmitSignInForm(data) {
     try {
       setLoading(true);
-      const response = await axiosInstance.post(`/auth/signin`, {
-        email: data.email,
-        password: data.password,
+      console.log("Mettre data:", data.currentTarget);
+      const response = await axios.post(URL + `/auth/signin`, null, {
+        auth: {
+          username: username,
+          password: password
+        }
+
       });
+      console.log(response.status)
 
       if (response.status === 200) {
+        console.log("OK")
         const aUser = new User(null, null, data.email);
 
-        aUser.accessToken = response.data.data.access_token;
-        aUser.refreshToken = response.data.data.refresh_token;
-        aUser.expires = response.data.data.expires;
-
-        localStorage.setItem("token", aUser.accessToken);
-        localStorage.setItem("token_refresh", aUser.refreshToken);
-
-        setAuthToken(aUser.accessToken);
-
+        aUser.accessToken = response.data.access_token;
+        aUser.refreshToken = response.data.refresh_token;
+        aUser.expires = response.data.expires;
         const decodedPayload = jwt_decode(aUser.accessToken);
 
         aUser.id = decodedPayload.id;
 
-        setLoading(true);
-        const response2 = await axiosInstance.get(`/users/${aUser.id}`, {
-          headers: { Authorization: `Bearer ${aUser.accessToken}` },
-        });
-        setLoading(false);
 
-        if (response2.status === 200) {
-          aUser.first_name = response2.data.data.first_name;
-          aUser.last_name = response2.data.data.last_name;
-          aUser.email = response2.data.data.email;
-          aUser.status = response2.data.data.status;
 
-          setError(false);
-          setUser(aUser);
-        } else {
-          setError(true);
-        }
 
-        window.location.href = '/dashboard'
 
-        reset();
+        localStorage.setItem("token", aUser.accessToken);
+        localStorage.setItem("token_refresh", aUser.refreshToken);
+        localStorage.setItem("email",username);
 
+        setAuthToken(aUser.accessToken);
+
+
+
+      } else {
+        setError(true);
       }
+
+      window.location.href = '/dashboard'
+
+      reset();
 
 
     } catch (error) {

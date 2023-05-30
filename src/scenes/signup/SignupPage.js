@@ -7,11 +7,8 @@ import User from "../../model/User";
 import axios from "axios";
 import {Box, Button, Container, TextField, Typography} from "@mui/material";
 
-const axiosInstance = axios.create({
-  baseURL: "https://fake-health-data-api.shrp.dev",
-  timeout: 3000,
-  headers: {},
-});
+
+const URL = "https://fake-health-data-api.shrp.dev";
 
 function SignupPage() {
   const {
@@ -25,20 +22,28 @@ function SignupPage() {
   const [user, setUser] = useState(null);
 
   async function onSubmitSignUpForm(data) {
-    const aUser = new User(
-      data.first_name,
-      data.last_name,
-      data.email,
-      data.password
-    );
+    const user = {
+      email: data.email,
+      password: data.password,
+      firstname: data.firstname,
+      lastname: data.lastname
+    }
+
+
 
     try {
       setLoading(true);
-      const response = await axiosInstance.post(`/auth/signup`, aUser);
+      const response = await axios.post(URL+`/auth/signup`, null,{
+        auth : { email: data.email,
+          password: data.password,
+          firstname: data.firstname,
+          lastname: data.lastname}
+      });
 
       if (response.status === 204) {
-        setUser(aUser);
+        setUser(bUser);
       }
+      console.log(response.status)
 
       setLoading(false);
       setError(false);
@@ -54,7 +59,7 @@ function SignupPage() {
     <div className="Signup">
       {loading === false && error === false && user !== null && (
         <p>
-          Compte créé pour <b>{`${user.first_name} ${user.last_name}`}</b> (
+          Compte créé pour <b>{`${user.firstname} ${user.lastname}`}</b> (
           {user.email})
         </p>
       )}
@@ -77,9 +82,9 @@ function SignupPage() {
               margin="normal"
               required
               fullWidth
-              id="first_name"
+              id="firstname"
               label="Prénom"
-              {...register('first_name', { required: true })}
+              {...register('firstname', { required: true })}
             />
             {errors.first_name && <Typography color="error">Ce champ est obligatoire</Typography>}
 
@@ -87,9 +92,9 @@ function SignupPage() {
               margin="normal"
               required
               fullWidth
-              id="last_name"
+              id="lastname"
               label="Nom"
-              {...register('last_name', { required: true })}
+              {...register('lastname', { required: true })}
             />
             {errors.last_name && <Typography color="error">Ce champ est obligatoire</Typography>}
 

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { ColorModeContext, useMode } from "./theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import {Box, CssBaseline, ThemeProvider} from "@mui/material";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import LoginPage, {setAuthToken} from "./scenes/signin/LoginPage";
 import SignupPage from "./scenes/signup/SignupPage"; // import the LoginPage component
-import Team from "./scenes/team";
+import History from "./scenes/history/history";
+import MasterGetPeople from './scenes/history/getPeople'
 // import Invoices from "./scenes/invoices";
 // import Contacts from "./scenes/contacts";
 // import Bar from "./scenes/bar";
@@ -25,6 +26,12 @@ function Layout(props) {
       <Sidebar />
       <main className="content" style={{ flexGrow: 1 }}>
         <Topbar />
+        <Box display="flex" height="calc(100vh - 64px)"> {/* Subtract the height of the topbar */}
+          <Box flexGrow={1} width="calc(100% - 270px)">
+            {/* Leave space for the fixed sidebar */}
+            {props.children}
+          </Box>
+        </Box>
       </main>
     </>
   );
@@ -50,7 +57,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
-              <Route path="/team" element={<Layout><Team /></Layout>} />
+              <Route path="/history" element={<Layout><History /></Layout>} />
               {/*<Route path="/contacts" element={<Layout><Contacts /></Layout>} />*/}
               {/*<Route path="/bar" element={<Layout><Bar /></Layout>} />*/}
               {/*<Route path="/pie" element={<Layout><Pie /></Layout>} />*/}
