@@ -8,7 +8,7 @@ function MasterGetPeople(){
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const accessToken = localStorage.getItem('token')
-  const URL = "https://fake-health-data-api.shrp.dev";
+  const URL = "https://fake-health-data-api.shrp.dev/";
   useEffect(() => {
     async function getPeople() {
       //permet d'obtenir la liste des utilisateurs fictifs depuis l'API
@@ -27,10 +27,11 @@ function MasterGetPeople(){
         });
 
         setLoading(false);
-
+        console.log(response.status)
         if (response.status === 200) {
           //mise à jour des personnes fictives
           setPeople(response.data.people);
+          console.log("OK")
         } else if (response.status === 498) {
           console.error(response.status);
           setError("Access Token has expired");
@@ -50,11 +51,7 @@ function MasterGetPeople(){
   }, [accessToken]);
 
   localStorage.setItem('people',people)
-  return (
-    <>
 
-    </>
-  );
 }
 
 export default MasterGetPeople;

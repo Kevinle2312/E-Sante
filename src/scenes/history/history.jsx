@@ -10,12 +10,14 @@ import {green} from "@mui/material/colors";
 import MasterGetPeople from './getPeople'
 
 const History = () => {
-  <MasterGetPeople/>
+  MasterGetPeople()
   const accessToken = localStorage.getItem("token")
   const theme = useTheme();
   const colors = token(theme.palette.mode);
   const data = localStorage.getItem('people')
+  const data_num = JSON.stringify(data)
   console.log(data)
+  console.log(data_num)
   const columns = [
     {
       field: "gender",
@@ -123,7 +125,7 @@ const History = () => {
               },
             }}
           >
-            <DataGrid checkboxSelection rows={data} columns={columns} />
+            <DataGrid checkboxSelection rows={data_num} columns={columns} />
           </Box>
         </Box>
       </Box>

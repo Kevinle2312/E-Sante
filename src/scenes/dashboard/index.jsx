@@ -39,7 +39,7 @@ const Dashboard = () => {
         </Box>
       </Box>
 
-      {/* GRID & CHARTS */}
+       GRID & CHARTS
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"

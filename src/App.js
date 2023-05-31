@@ -9,6 +9,7 @@ import LoginPage, {setAuthToken} from "./scenes/signin/LoginPage";
 import SignupPage from "./scenes/signup/SignupPage"; // import the LoginPage component
 import History from "./scenes/history/history";
 import MasterGetPeople from './scenes/history/getPeople'
+import getPeople from "./scenes/history/getPeople";
 // import Invoices from "./scenes/invoices";
 // import Contacts from "./scenes/contacts";
 // import Bar from "./scenes/bar";
@@ -58,6 +59,7 @@ function App() {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
               <Route path="/history" element={<Layout><History /></Layout>} />
+              <Route path="/getpeople" element={<MasterGetPeople />}/>
               {/*<Route path="/contacts" element={<Layout><Contacts /></Layout>} />*/}
               {/*<Route path="/bar" element={<Layout><Bar /></Layout>} />*/}
               {/*<Route path="/pie" element={<Layout><Pie /></Layout>} />*/}
