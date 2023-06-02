@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Author:
+
+Nicolas Barreau, Anthony Joguet, Thomas Mangeot, Le Cao Tung Lam
+
+# Difficulté: Ne peut pas tester avec l'API
+
+# Resulta:Avoir un interface d'un page. Il y a login, logout et signup fonction
+
+
 ## Available Scripts
 
 In the project directory, you can run:
